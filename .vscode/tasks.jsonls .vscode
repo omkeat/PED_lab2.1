@@ -1,0 +1,33 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "C++: g++ компіляція та запуск",
+      "type": "shell",
+      "command": "/usr/bin/g++",
+      "args": [
+        "-g",
+        "${file}",
+        "-o",
+        "${fileDirname}/a.out"
+      ],
+      "group": {
+        "kind": "build",
+        "isDefault": true
+      },
+      "detail": "Компілірує C++ програму"
+    },
+    {
+      "label": "C++: запуск програми",
+      "type": "shell",
+      "command": "${fileDirname}/a.out",
+      "group": {
+        "kind": "test",
+        "isDefault": true
+      },
+      "dependsOrder": "sequence",
+      "dependsOn": ["C++: g++ компіляція та запуск"]
+    }
+  ]
+}
+
